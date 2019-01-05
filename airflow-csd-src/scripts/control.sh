@@ -30,30 +30,35 @@ case ${SERVICE} in
     log "Initialising the Airflow metadata DB"
     substitute_common_tokens
     substitute_webserver_tokens
-    exec su airflow -c "airflow initdb" >> ${CONF_DIR}/logs/stdout.log 2>> ${CONF_DIR}/logs/stderr.log
+    exec su airflow -c "export PATH=/opt/cloudera/parcels/AIRFLOW/bin:$PATH;airflow initdb" >> ${CONF_DIR}/logs/stdout.log 2>> ${CONF_DIR}/logs/stderr.log
+    #exec su airflow -c "airflow initdb" >> ${CONF_DIR}/logs/stdout.log 2>> ${CONF_DIR}/logs/stderr.log
     ;;
   (webserver_start)
     log "Starting the Airflow webserver"
     substitute_common_tokens
     substitute_webserver_tokens
-    exec su airflow -c "airflow webserver" >> ${CONF_DIR}/logs/stdout.log 2>> ${CONF_DIR}/logs/stderr.log
+    exec su airflow -c "export PATH=/opt/cloudera/parcels/AIRFLOW/bin:$PATH;airflow webserver" >> ${CONF_DIR}/logs/stdout.log 2>> ${CONF_DIR}/logs/stderr.log
+    #exec su airflow -c "airflow webserver" >> ${CONF_DIR}/logs/stdout.log 2>> ${CONF_DIR}/logs/stderr.log
     ;;
   (celery_start)
     log "Starting the Airflow celery"
     substitute_common_tokens
     substitute_celery_tokens
-    exec su airflow -c "airflow flower" >> ${CONF_DIR}/logs/stdout.log 2>> ${CONF_DIR}/logs/stderr.log
+    exec su airflow -c "export PATH=/opt/cloudera/parcels/AIRFLOW/bin:$PATH;airflow flower" >> ${CONF_DIR}/logs/stdout.log 2>> ${CONF_DIR}/logs/stderr.log
+    #exec su airflow -c "airflow flower" >> ${CONF_DIR}/logs/stdout.log 2>> ${CONF_DIR}/logs/stderr.log
     ;;
   (worker_start)
     log "Starting the Airflow worker"
     substitute_common_tokens
-    exec su airflow -c "airflow worker -q ${WORKER__QUEUE}" >> ${CONF_DIR}/logs/stdout.log 2>> ${CONF_DIR}/logs/stderr.log
+    exec su airflow -c "export PATH=/opt/cloudera/parcels/AIRFLOW/bin:$PATH;airflow worker -q ${WORKER__QUEUE}" >> ${CONF_DIR}/logs/stdout.log 2>> ${CONF_DIR}/logs/stderr.log
+    #exec su airflow -c "airflow worker -q ${WORKER__QUEUE}" >> ${CONF_DIR}/logs/stdout.log 2>> ${CONF_DIR}/logs/stderr.log
     ;;
   (scheduler_start)
     log "Starting the Airflow scheduler"
     substitute_common_tokens
     substitute_scheduler_tokens
-    exec su airflow -c "airflow scheduler" >> ${CONF_DIR}/logs/stdout.log 2>> ${CONF_DIR}/logs/stderr.log
+    exec su airflow -c "export PATH=/opt/cloudera/parcels/AIRFLOW/bin:$PATH;airflow scheduler" >> ${CONF_DIR}/logs/stdout.log 2>> ${CONF_DIR}/logs/stderr.log
+    #exec su airflow -c "airflow scheduler" >> ${CONF_DIR}/logs/stdout.log 2>> ${CONF_DIR}/logs/stderr.log
     ;;
   (worker_pip_install)
     log "Installing additional python packages by pip"
