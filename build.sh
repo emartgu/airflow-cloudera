@@ -58,7 +58,7 @@ function get_anaconda_with_airflow {
   $anaconda_prefix/$anaconda_folder/bin/pip install celery[redis]==3.1.17
   $anaconda_prefix/$anaconda_folder/bin/pip install flower
   $anaconda_prefix/$anaconda_folder/bin/pip install flask-bcrypt
-  /usr/bin/yes | $anaconda_prefix/$anaconda_folder/bin/pip uninstall snakebite
+  #/usr/bin/yes | $anaconda_prefix/$anaconda_folder/bin/pip uninstall snakebite
 
   echo " -- Clearing installed python executables"  
   set +e
