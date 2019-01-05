@@ -52,7 +52,7 @@ function get_anaconda_with_airflow {
   fi
   
   echo " -- Installing python packages"
-  $anaconda_prefix/$anaconda_folder/bin/pip install apache-airflow[all]=="$AIRFLOW_VERSION"
+  $anaconda_prefix/$anaconda_folder/bin/pip install apache-airflow=="$AIRFLOW_VERSION"
   $anaconda_prefix/$anaconda_folder/bin/pip install kerberos
   $anaconda_prefix/$anaconda_folder/bin/pip install hdfs
   $anaconda_prefix/$anaconda_folder/bin/pip install celery[redis]==3.1.17
