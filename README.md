@@ -19,6 +19,8 @@ sudo apt-get install libkrb5-dev
 sudo apt-get install libsasl2-dev
 sudo apt-get install openjdk-8-jdk-headless
 sudo apt-get install python-kerberos
+sudo apt-get install python-mysqldb
+
 ```
 
 ## Build
