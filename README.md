@@ -5,9 +5,14 @@ This git repository is used to build both CSDs and parcels for CDH.
 Airflow will run as service in Cloudera Manager, and its configuration is maintained through the CM web UI.
 All necessary python packeges (airflow, celery, flower, flask) are installed inside the parcel which uses Anaconda3 distribution.
 
-There are used Anaconda3 v5.1.0 and Airflow v1.10.1
+Environmemnt:
+  - Ubuntu 16.04.5 LTS/CDH 5.14.0
+  - Anaconda3 v5.1.0
+  - Airflow v1.10.1
 
-This has been tested on Ubuntu 16.04.5 LTS/CDH 5.14.0.
+
+Still WIP. 
+
 
 ## Prerequisites
 
